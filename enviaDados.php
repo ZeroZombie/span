@@ -4,12 +4,9 @@
 <body>
 
 <?php
-    $local_server="localhost";
-    $usuario_server = "root";
-    $senha_server = "root";
-    $banco_dados = "span";
-    if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
-    if ($db = @mysql_select_db($banco_dados, $conecta)){
+    $conexao = mysql_connect("localhost","root","root");
+               mysql_select_db("span");
+
     $nome = $_POST["txtNome"];
     $dnasc = $_POST["txtData"];
     $idade = $_POST["txtIdade"];
@@ -40,20 +37,7 @@
     $peso = $_POST["txtPeso"];
     $sql = "INSERT INTO `individuo`(`nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso_inicio`, `peso_fim`) VALUES
      ('".$nome."','".$dnasc."','".$idade."','".$sexo."','".$naturalidade."','".$nacionalidade."','".$endereco."','".$CEP."','".$bairro."','".$municipio."','".$tel1."','".$tel2."','".$email."','".$escolaridade."','".$curso."','".$profissao."','".$trabalhando."','".$aposentado."','".$estadoCivil."','".$arranjoDomiciliar."','".$numeroDomicilio."','".$pessoasRenda."','".$tipoRenda."','".$renda."','".$religiao."','".$pergunta."','".$altura."','".$peso."')";
-            if ($query = \mysql_query($sql)){
-                echo "Sucesso";                                            
-            } else {
-                echo "Erro";    
-               mysql_error();
-            }
-    }else { //erro na seleção do banco de dados
-    echo "Erro seleção";
-    }
-    }else { //erro na conexão com a servidor
-    echo "erro conexão";    
-    }
+   
 ?>
-
-
 </body>
 </html>
