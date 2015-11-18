@@ -3,22 +3,8 @@
 <meta charset="UTF-8">
 </head>
 <body>
-<?php
-    $local_server="localhost";
-    $usuario_server = "root";
-    $senha_server = "root";
-    $banco_dados = "span";
-    if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
-    if ($db = @mysql_select_db($banco_dados, $conecta)){
-    }else { //erro na seleção do banco de dados
-    echo "Erro seleção";
-    }
-    }else { //erro na conexão com a servidor
-    echo "erro conexão";    
-    }
-?>
-<form name ="frm" method="post" action="./enviaDados.php">
 
+<form name ="frm" method="post" action="./enviaDados.php">
 <h3>I-Identifica&ccedil;ão</h3>
 Nome:<input type="text" name="txtNome" maxlength="150" size="70">
 Data de nascimento:<input type="text" name="txtData" maxlength="8" size="8"><br>
